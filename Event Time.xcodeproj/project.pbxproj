@@ -13,8 +13,6 @@
 		1124932123A4434E00796D25 /* Event_Time.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1124931F23A4434E00796D25 /* Event_Time.xcdatamodeld */; };
 		1124932323A4434F00796D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1124932223A4434F00796D25 /* Assets.xcassets */; };
 		1124932623A4434F00796D25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1124932423A4434F00796D25 /* LaunchScreen.storyboard */; };
-		1124933123A4434F00796D25 /* Event_TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124933023A4434F00796D25 /* Event_TimeTests.swift */; };
-		1124933C23A4434F00796D25 /* Event_TimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124933B23A4434F00796D25 /* Event_TimeUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +42,7 @@
 		1124932523A4434F00796D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1124932723A4434F00796D25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1124932C23A4434F00796D25 /* Event TimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Event TimeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1124933023A4434F00796D25 /* Event_TimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event_TimeTests.swift; sourceTree = "<group>"; };
-		1124933223A4434F00796D25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1124933723A4434F00796D25 /* Event TimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Event TimeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1124933B23A4434F00796D25 /* Event_TimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event_TimeUITests.swift; sourceTree = "<group>"; };
-		1124933D23A4434F00796D25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				1124931723A4434E00796D25 /* Event Time */,
-				1124932F23A4434F00796D25 /* Event TimeTests */,
-				1124933A23A4434F00796D25 /* Event TimeUITests */,
 				1124931623A4434E00796D25 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,24 +100,6 @@
 				1124931F23A4434E00796D25 /* Event_Time.xcdatamodeld */,
 			);
 			path = "Event Time";
-			sourceTree = "<group>";
-		};
-		1124932F23A4434F00796D25 /* Event TimeTests */ = {
-			isa = PBXGroup;
-			children = (
-				1124933023A4434F00796D25 /* Event_TimeTests.swift */,
-				1124933223A4434F00796D25 /* Info.plist */,
-			);
-			path = "Event TimeTests";
-			sourceTree = "<group>";
-		};
-		1124933A23A4434F00796D25 /* Event TimeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1124933B23A4434F00796D25 /* Event_TimeUITests.swift */,
-				1124933D23A4434F00796D25 /* Info.plist */,
-			);
-			path = "Event TimeUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,7 +243,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1124933123A4434F00796D25 /* Event_TimeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1124933C23A4434F00796D25 /* Event_TimeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
