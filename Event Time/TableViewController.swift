@@ -11,10 +11,9 @@ import UIKit
 class TableViewController: UITableViewController {
 
     let dateArray = [String]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addConstraints(to: view)
+        //self.view.addConstraints(to: view)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

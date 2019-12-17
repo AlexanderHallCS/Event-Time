@@ -62,6 +62,7 @@
         <!--Reminder Navigation View Controller-->
         <scene sceneID="jtp-Cq-zIU">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9nt-p6-tCz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController title="Reminder Navigation View Controller" automaticallyAdjustsScrollViewInsets="NO" id="siv-YZ-Erm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C6j-tS-uem">
@@ -73,13 +74,13 @@
                         <segue destination="JVt-1u-8iM" kind="relationship" relationship="rootViewController" id="KOc-Ye-gzr"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9nt-p6-tCz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="126.56249999999999" y="74.670571010248892"/>
         </scene>
         <!--Add Reminder Navigation View Controller-->
         <scene sceneID="0FV-6q-Hjl">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c71-U5-XsA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController title="Add Reminder Navigation View Controller" automaticallyAdjustsScrollViewInsets="NO" id="hD1-Km-bt0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="49e-mL-WG8"/>
@@ -92,7 +93,6 @@
                         <segue destination="DOG-PH-Lq8" kind="relationship" relationship="rootViewController" id="Sxm-pP-I8g"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c71-U5-XsA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1636.5234375" y="74.670571010248892"/>
         </scene>

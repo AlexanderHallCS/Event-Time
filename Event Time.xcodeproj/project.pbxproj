@@ -97,8 +97,8 @@
 				1124931A23A4434E00796D25 /* TableViewController.swift */,
 				118EBD9C23A6F78700FFB641 /* UIViewExtensions.swift */,
 				1124931C23A4434E00796D25 /* Main.storyboard */,
-				1124932223A4434F00796D25 /* Assets.xcassets */,
 				1124932423A4434F00796D25 /* LaunchScreen.storyboard */,
+				1124932223A4434F00796D25 /* Assets.xcassets */,
 				1124932723A4434F00796D25 /* Info.plist */,
 				1124931F23A4434E00796D25 /* Event_Time.xcdatamodeld */,
 			);
