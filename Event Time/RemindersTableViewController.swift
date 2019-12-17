@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class RemindersTableViewController: UITableViewController {
 
     let dateArray = [String]()
     override func viewDidLoad() {
