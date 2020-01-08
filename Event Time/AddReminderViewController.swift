@@ -8,8 +8,19 @@
 
 import UIKit
 
-class AddReminderViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class AddReminderViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var textField: UITextField! {
+        didSet {
+            textField.delegate = self
+        }
+    }
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(textField.text!)
+        textField.resignFirstResponder()
+        return true
     }
 }

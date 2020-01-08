@@ -34,7 +34,7 @@
                     <navigationItem key="navigationItem" title="Reminders" id="nLi-m0-aIR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="82b-Gl-xha">
                             <connections>
-                                <segue destination="hD1-Km-bt0" kind="presentation" modalPresentationStyle="fullScreen" id="gQm-If-u9W"/>
+                                <segue destination="hD1-Km-bt0" kind="presentation" identifier="goToReminderSetter" modalPresentationStyle="fullScreen" id="gQm-If-u9W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -50,14 +50,37 @@
                     <view key="view" contentMode="scaleToFill" id="Z1h-RB-KBM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Xp-Ta-ZHh">
+                                <rect key="frame" x="47" y="282" width="320" height="216"/>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Reminder" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-ei-1b6">
+                                <rect key="frame" x="143.33333333333334" y="174" width="127.33333333333334" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="127.33333333333334" id="iqt-fU-ns5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0Xp-Ta-ZHh" firstAttribute="top" secondItem="4fQ-ei-1b6" secondAttribute="bottom" constant="74" id="3bI-u1-GtR"/>
+                            <constraint firstItem="0Xp-Ta-ZHh" firstAttribute="centerX" secondItem="K0j-2q-8v1" secondAttribute="centerX" id="AXI-AL-SVZ"/>
+                            <constraint firstItem="4fQ-ei-1b6" firstAttribute="centerX" secondItem="K0j-2q-8v1" secondAttribute="centerX" id="kmK-pZ-cCO"/>
+                            <constraint firstItem="0Xp-Ta-ZHh" firstAttribute="centerY" secondItem="K0j-2q-8v1" secondAttribute="centerY" id="oxw-nN-3of"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="K0j-2q-8v1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Reminder" id="ebW-yQ-rh0"/>
+                    <connections>
+                        <outlet property="datePicker" destination="0Xp-Ta-ZHh" id="hZ3-PK-yJb"/>
+                        <outlet property="textField" destination="4fQ-ei-1b6" id="fCf-dF-HMz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6v-uy-xPL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2362.5" y="74.670571010248892"/>
+            <point key="canvasLocation" x="2362.3188405797105" y="74.184782608695656"/>
         </scene>
         <!--Reminder Navigation View Controller-->
         <scene sceneID="jtp-Cq-zIU">

@@ -13,7 +13,6 @@
 		1124932123A4434E00796D25 /* Event_Time.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1124931F23A4434E00796D25 /* Event_Time.xcdatamodeld */; };
 		1124932323A4434F00796D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1124932223A4434F00796D25 /* Assets.xcassets */; };
 		1124932623A4434F00796D25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1124932423A4434F00796D25 /* LaunchScreen.storyboard */; };
-		118EBD9D23A6F78700FFB641 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118EBD9C23A6F78700FFB641 /* UIViewExtensions.swift */; };
 		1194457423A9931100536B45 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194457323A9931100536B45 /* AddReminderViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +44,6 @@
 		1124932723A4434F00796D25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1124932C23A4434F00796D25 /* Event TimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Event TimeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1124933723A4434F00796D25 /* Event TimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Event TimeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		118EBD9C23A6F78700FFB641 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		1194457323A9931100536B45 /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,17 +93,24 @@
 		1124931723A4434E00796D25 /* Event Time */ = {
 			isa = PBXGroup;
 			children = (
-				1124931823A4434E00796D25 /* AppDelegate.swift */,
+				11E63DFB23C5D83800D703E0 /* Supporting  Files */,
 				1124931A23A4434E00796D25 /* RemindersTableViewController.swift */,
 				1194457323A9931100536B45 /* AddReminderViewController.swift */,
-				118EBD9C23A6F78700FFB641 /* UIViewExtensions.swift */,
 				1124931C23A4434E00796D25 /* Main.storyboard */,
-				1124932423A4434F00796D25 /* LaunchScreen.storyboard */,
-				1124932223A4434F00796D25 /* Assets.xcassets */,
 				1124932723A4434F00796D25 /* Info.plist */,
 				1124931F23A4434E00796D25 /* Event_Time.xcdatamodeld */,
 			);
 			path = "Event Time";
+			sourceTree = "<group>";
+		};
+		11E63DFB23C5D83800D703E0 /* Supporting  Files */ = {
+			isa = PBXGroup;
+			children = (
+				1124931823A4434E00796D25 /* AppDelegate.swift */,
+				1124932423A4434F00796D25 /* LaunchScreen.storyboard */,
+				1124932223A4434F00796D25 /* Assets.xcassets */,
+			);
+			path = "Supporting  Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +247,6 @@
 				1194457423A9931100536B45 /* AddReminderViewController.swift in Sources */,
 				1124932123A4434E00796D25 /* Event_Time.xcdatamodeld in Sources */,
 				1124931B23A4434E00796D25 /* RemindersTableViewController.swift in Sources */,
-				118EBD9D23A6F78700FFB641 /* UIViewExtensions.swift in Sources */,
 				1124931923A4434E00796D25 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,6 @@ class RemindersTableViewController: UITableViewController {
     let dateArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.view.addConstraints(to: view)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,6 +24,14 @@ class RemindersTableViewController: UITableViewController {
         cell.textLabel!.text = dateArray[indexPath.row]
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToReminderSetter" {
+            if let reminderVC = segue.destination as? AddReminderViewController {
+                reminderVC.textField.becomeFirstResponder()
+            }
+        }
     }
     
 }
