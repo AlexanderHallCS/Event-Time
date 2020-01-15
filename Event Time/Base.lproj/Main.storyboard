@@ -69,6 +69,9 @@
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Xp-Ta-ZHh">
                                 <rect key="frame" x="47" y="282" width="320" height="216"/>
+                                <connections>
+                                    <action selector="datePicker:" destination="DOG-PH-Lq8" eventType="valueChanged" id="cSi-fd-f8x"/>
+                                </connections>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Reminder" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-ei-1b6">
                                 <rect key="frame" x="20" y="174" width="374" height="34"/>
@@ -91,7 +94,6 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="wZ6-Et-H0Z"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="datePicker" destination="0Xp-Ta-ZHh" id="hZ3-PK-yJb"/>
                         <outlet property="textField" destination="4fQ-ei-1b6" id="fCf-dF-HMz"/>
                     </connections>
                 </viewController>

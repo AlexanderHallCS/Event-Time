@@ -12,8 +12,6 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // use target action to respond to the date picker changing value
-        datePicker.addTarget(self, action: #selector(handleDateValue), for: UIControl.Event.valueChanged)
     }
     
     @IBOutlet weak var textField: UITextField! {
@@ -22,10 +20,8 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
     // called whenever the value of the data picker stops scrolling and changes
-    @objc func handleDateValue(_ datePicker: UIDatePicker) {
+    @IBAction func datePicker(_ sender: UIDatePicker) {
         print("Changed!")
     }
     
