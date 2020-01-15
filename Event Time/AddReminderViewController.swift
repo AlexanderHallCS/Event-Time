@@ -10,17 +10,36 @@ import UIKit
 
 class AddReminderViewController: UIViewController, UITextFieldDelegate {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // use target action to respond to the date picker changing value
+        datePicker.addTarget(self, action: #selector(handleDateValue), for: UIControl.Event.valueChanged)
+    }
+    
     @IBOutlet weak var textField: UITextField! {
         didSet {
             textField.delegate = self
         }
     }
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    // called whenever the value of the data picker stops scrolling and changes
+    @objc func handleDateValue(_ datePicker: UIDatePicker) {
+        print("Changed!")
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(textField.text!)
         textField.resignFirstResponder()
         return true
     }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "unwindToRemindersView" {
+            if let reminderTableVC = segue.destination as? RemindersTableViewController {
+                reminderTableVC.stringDate = datePicker.date.description
+            }
+        }
+    }*/
 }

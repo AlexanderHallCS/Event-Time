@@ -10,10 +10,21 @@ import UIKit
 
 class RemindersTableViewController: UITableViewController {
 
-    let dateArray = [String]()
+    // model
+    var dateArray = [String]()
+    
+    //var stringDate: String = ""
+    
+    /*
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    } */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dateArray.count
@@ -21,15 +32,25 @@ class RemindersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellName", for: indexPath)
-        cell.textLabel!.text = dateArray[indexPath.row]
+        //dateArray[indexPath.row] = stringDate
+        //cell.textLabel!.text = dateArray[indexPath.row] + "test"
+        //cell.detailTextLabel!.text = "Remind me at: " + dateArray[indexPath.row]
         
         return cell
     }
     
+    // allow swipe to delete for table rows
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            dateArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToReminderSetter" {
-            if let reminderVC = segue.destination as? AddReminderViewController {
-                reminderVC.textField.becomeFirstResponder()
+            if let addReminderVC = segue.destination as? AddReminderViewController {
+                addReminderVC.textField.becomeFirstResponder()
             }
         }
     }

@@ -71,24 +71,25 @@
                                 <rect key="frame" x="47" y="282" width="320" height="216"/>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Reminder" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-ei-1b6">
-                                <rect key="frame" x="143.33333333333334" y="174" width="127.33333333333334" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="127.33333333333334" id="iqt-fU-ns5"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="174" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="0Xp-Ta-ZHh" firstAttribute="top" secondItem="4fQ-ei-1b6" secondAttribute="bottom" constant="74" id="3bI-u1-GtR"/>
                             <constraint firstItem="0Xp-Ta-ZHh" firstAttribute="centerX" secondItem="K0j-2q-8v1" secondAttribute="centerX" id="AXI-AL-SVZ"/>
-                            <constraint firstItem="4fQ-ei-1b6" firstAttribute="centerX" secondItem="K0j-2q-8v1" secondAttribute="centerX" id="kmK-pZ-cCO"/>
+                            <constraint firstItem="4fQ-ei-1b6" firstAttribute="leading" secondItem="K0j-2q-8v1" secondAttribute="leading" constant="20" id="IVI-KL-tYE"/>
+                            <constraint firstItem="4fQ-ei-1b6" firstAttribute="centerX" secondItem="K0j-2q-8v1" secondAttribute="centerX" id="gQS-gk-1MI"/>
+                            <constraint firstItem="0Xp-Ta-ZHh" firstAttribute="top" secondItem="4fQ-ei-1b6" secondAttribute="bottom" constant="74" id="kQL-Jk-SgD"/>
+                            <constraint firstItem="K0j-2q-8v1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4fQ-ei-1b6" secondAttribute="trailing" constant="20" id="m5Z-Lg-pM2"/>
                             <constraint firstItem="0Xp-Ta-ZHh" firstAttribute="centerY" secondItem="K0j-2q-8v1" secondAttribute="centerY" id="oxw-nN-3of"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K0j-2q-8v1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Reminder" id="ebW-yQ-rh0"/>
+                    <navigationItem key="navigationItem" title="Add Reminder" id="ebW-yQ-rh0">
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="wZ6-Et-H0Z"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="0Xp-Ta-ZHh" id="hZ3-PK-yJb"/>
                         <outlet property="textField" destination="4fQ-ei-1b6" id="fCf-dF-HMz"/>
