@@ -11,7 +11,8 @@ import UIKit
 class RemindersTableViewController: UITableViewController {
 
     // model
-    var dateArray = [String]()
+    //var dateArray = [String]()
+    var dateArray = [1,2,3,4,5]
     
     //var stringDate: String = ""
     
@@ -32,6 +33,7 @@ class RemindersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellName", for: indexPath)
+        cell.textLabel!.text = String(dateArray[indexPath.row])
         //dateArray[indexPath.row] = stringDate
         //cell.textLabel!.text = dateArray[indexPath.row] + "test"
         //cell.detailTextLabel!.text = "Remind me at: " + dateArray[indexPath.row]

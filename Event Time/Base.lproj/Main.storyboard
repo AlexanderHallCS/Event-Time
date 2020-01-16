@@ -91,9 +91,21 @@
                         <viewLayoutGuide key="safeArea" id="K0j-2q-8v1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Reminder" id="ebW-yQ-rh0">
-                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="wZ6-Et-H0Z"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="arD-s7-oOx">
+                            <connections>
+                                <action selector="cancelPopOut:" destination="DOG-PH-Lq8" id="RXY-Vi-JIk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wZ6-Et-H0Z">
+                            <connections>
+                                <action selector="saveWhatWasTyped:" destination="DOG-PH-Lq8" id="GJH-MK-PBo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="0Xp-Ta-ZHh" id="U6N-6g-Qae"/>
+                        <outlet property="reminderInputTextField" destination="4fQ-ei-1b6" id="KuD-dx-axq"/>
+                        <outlet property="saveButton" destination="wZ6-Et-H0Z" id="dv6-R7-ik4"/>
                         <outlet property="textField" destination="4fQ-ei-1b6" id="fCf-dF-HMz"/>
                     </connections>
                 </viewController>
