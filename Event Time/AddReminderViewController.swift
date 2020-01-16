@@ -16,11 +16,18 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveButton.isEnabled = false
         //datePicker.minimumDate = Date()
         //print(Date())
     }
     
     @IBAction func cancelPopOut(_ sender: UIBarButtonItem) {
+        /*if let remindersVC = UIViewController() as? RemindersTableViewController {
+            remindersVC.dateArray.append(21)
+            remindersVC.tableView.reloadData()
+            print("DID SOMETHING")
+        } */
+        print("Dismissed!")
         self.dismiss(animated: true)
     }
     
@@ -46,15 +53,15 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
     @IBAction func datePicker(_ sender: UIDatePicker) {
         
         // disable save button if they try to pick a date before current date
-        print(NSDate().earlierDate(datePicker.date))
-        print(datePicker.date)
+        //print(NSDate().earlierDate(datePicker.date))
+        //print(datePicker.date)
         if NSDate().earlierDate(datePicker.date) == datePicker.date {
             saveButton.isEnabled = false
-        } else {
+        } else if textField.text!.isEmpty == false {
             saveButton.isEnabled = true
         }
         print("Changed!")
-        print(sender.date.description)
+        //print(sender.date.description)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -66,8 +73,11 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "unwindToRemindersView" {
             if let reminderTableVC = segue.destination as? RemindersTableViewController {
-                reminderTableVC.stringDate = datePicker.date.description
+                reminderTableVC.dateArray.append(21)
+                reminderTableVC.tableView.reloadData()
+     //tableView.insertRowsAtIndexPath([indexPath], withRowAnimation: .Bottom)
+                print("Segued!")
             }
         }
-    }*/
+    } */
 }
