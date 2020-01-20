@@ -14,20 +14,16 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var reminderInputTextField: UITextField!
     
+    var reminder: ReminderObject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButton.isEnabled = false
-        //datePicker.minimumDate = Date()
-        //print(Date())
+        datePicker.locale = Locale.current
     }
     
     @IBAction func cancelPopOut(_ sender: UIBarButtonItem) {
-        /*if let remindersVC = UIViewController() as? RemindersTableViewController {
-            remindersVC.dateArray.append(21)
-            remindersVC.tableView.reloadData()
-            print("DID SOMETHING")
-        } */
-        print("Dismissed!")
+        
         self.dismiss(animated: true)
     }
     
@@ -40,9 +36,6 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveWhatWasTyped(_ sender: UIBarButtonItem) {
         textField.resignFirstResponder()
     }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        saveButton.isEnabled = true
-    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         // disable save button if text field is empty
@@ -53,15 +46,11 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
     @IBAction func datePicker(_ sender: UIDatePicker) {
         
         // disable save button if they try to pick a date before current date
-        //print(NSDate().earlierDate(datePicker.date))
-        //print(datePicker.date)
         if NSDate().earlierDate(datePicker.date) == datePicker.date {
             saveButton.isEnabled = false
         } else if textField.text!.isEmpty == false {
             saveButton.isEnabled = true
         }
-        print("Changed!")
-        //print(sender.date.description)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -70,14 +59,34 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "unwindToRemindersView" {
-            if let reminderTableVC = segue.destination as? RemindersTableViewController {
-                reminderTableVC.dateArray.append(21)
-                reminderTableVC.tableView.reloadData()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if sender as? UIBarButtonItem == saveButton {
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            content.title = datePicker.date.description
+            content.body = textField.text!
+            content.sound = .default
+            content.userInfo = ["value":"Data with local notification"]
+            let fireDate = Calendar.current.dateComponents([.day,.month,.year,.hour,.minute,.second], from: datePicker.date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: false)
+            let request = UNNotificationRequest(identifier: textField.text!, content: content, trigger: trigger)
+            center.add(request, withCompletionHandler: { (error) in
+                if error != nil {
+                    print("Error = \(error?.localizedDescription ?? "error local notification")")
+                }
+            })
+            
+            reminder = ReminderObject(title: textField.text!, date: datePicker.date)
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+       // if segue.identifier == "unwindToRemindersView" {
+         //   if let reminderTableVC = segue.destination as? RemindersTableViewController {
+                //reminderTableVC.dateArray.append(21)
+                //reminderTableVC.tableView.reloadData()
      //tableView.insertRowsAtIndexPath([indexPath], withRowAnimation: .Bottom)
                 print("Segued!")
-            }
-        }
-    } */
+      //      }
+    //    }
+    }
 }

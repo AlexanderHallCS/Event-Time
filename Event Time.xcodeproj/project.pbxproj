@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111178A923D538A7009FC793 /* ReminderObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111178A823D538A7009FC793 /* ReminderObject.swift */; };
 		1124931923A4434E00796D25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124931823A4434E00796D25 /* AppDelegate.swift */; };
 		1124931B23A4434E00796D25 /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124931A23A4434E00796D25 /* RemindersTableViewController.swift */; };
 		1124931E23A4434E00796D25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1124931C23A4434E00796D25 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		111178A823D538A7009FC793 /* ReminderObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderObject.swift; sourceTree = "<group>"; };
 		1124931523A4434E00796D25 /* Event Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1124931823A4434E00796D25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1124931A23A4434E00796D25 /* RemindersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				11E63DFB23C5D83800D703E0 /* Supporting  Files */,
 				1124931A23A4434E00796D25 /* RemindersTableViewController.swift */,
+				111178A823D538A7009FC793 /* ReminderObject.swift */,
 				1194457323A9931100536B45 /* AddReminderViewController.swift */,
 				1124931C23A4434E00796D25 /* Main.storyboard */,
 				1124932723A4434F00796D25 /* Info.plist */,
@@ -246,6 +249,7 @@
 			files = (
 				1194457423A9931100536B45 /* AddReminderViewController.swift in Sources */,
 				1124932123A4434E00796D25 /* Event_Time.xcdatamodeld in Sources */,
+				111178A923D538A7009FC793 /* ReminderObject.swift in Sources */,
 				1124931B23A4434E00796D25 /* RemindersTableViewController.swift in Sources */,
 				1124931923A4434E00796D25 /* AppDelegate.swift in Sources */,
 			);

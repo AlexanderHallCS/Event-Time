@@ -7,16 +7,16 @@
 //
 
 import UIKit
+import UserNotifications
 
 class RemindersTableViewController: UITableViewController {
 
     // model
-    //var dateArray = [String]()
-    var dateArray = [1,2,3,4,5]
+    var remindersArray = [ReminderObject]()
     
-    //var stringDate: String = ""
+    let dateFormatter = DateFormatter()
+    let locale = NSLocale.current
     
-    /*
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
@@ -25,18 +25,17 @@ class RemindersTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-    } */
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dateArray.count
+        return remindersArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellName", for: indexPath)
-        cell.textLabel!.text = String(dateArray[indexPath.row])
-        //dateArray[indexPath.row] = stringDate
-        //cell.textLabel!.text = dateArray[indexPath.row] + "test"
-        //cell.detailTextLabel!.text = "Remind me at: " + dateArray[indexPath.row]
+        let reminder = remindersArray[indexPath.row]
+        cell.textLabel!.text = reminder.title
+        cell.detailTextLabel!.text = dateFormatter.string(from: reminder.date)
         
         return cell
     }
@@ -44,14 +43,43 @@ class RemindersTableViewController: UITableViewController {
     // allow swipe to delete for table rows
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            dateArray.remove(at: indexPath.row)
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [remindersArray[indexPath.row].title])
+            remindersArray.remove(at: indexPath.row)
+            saveReminders()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         }
+    }
+    
+    func saveReminders() {
+        let fullPath = ReminderObject.DocumentsDirectory.appendingPathComponent("reminders")
+        
+        do {
+                let data = try NSKeyedArchiver.archivedData(withRootObject: remindersArray, requiringSecureCoding: false)
+            try data.write(to: fullPath)
+            
+        } catch {
+            print("Failed to save reminders")
+        }
+    }
+    
+    func loadReminders() -> [ReminderObject]? {
+        //let data = NSData(contentsOfFile: ReminderObject.DocumentsDirectory.path)
+        let dataURL = ReminderObject.DocumentsDirectory
+        guard let codedData = try? Data(contentsOf: dataURL) else { return nil }
+        let data = try! (NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(codedData) as! [ReminderObject])
+        return data
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToReminderSetter" {
-            if let addReminderVC = segue.destination as? AddReminderViewController {
+            if let addReminderVC = segue.destination as? AddReminderViewController, let reminder = addReminderVC.reminder {
+                // add a new reminder
+                let newIndexPath = IndexPath(row: remindersArray.count, section: 0)
+                remindersArray.append(reminder)
+                tableView.insertRows(at: [newIndexPath] , with: .bottom)
+                saveReminders()
+                tableView.reloadData()
                 addReminderVC.textField.becomeFirstResponder()
             }
         }

@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController id="JVt-1u-8iM" customClass="RemindersTableViewController" customModule="Event_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rye-1s-65F">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -99,6 +99,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wZ6-Et-H0Z">
                             <connections>
                                 <action selector="saveWhatWasTyped:" destination="DOG-PH-Lq8" id="GJH-MK-PBo"/>
+                                <segue destination="JVt-1u-8iM" kind="show" id="Ila-l6-Ldk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -151,4 +152,7 @@
             <point key="canvasLocation" x="1636.5234375" y="74.670571010248892"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ila-l6-Ldk"/>
+    </inferredMetricsTieBreakers>
 </document>
