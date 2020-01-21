@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController id="JVt-1u-8iM" customClass="RemindersTableViewController" customModule="Event_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rye-1s-65F">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" title="Reminders" id="nLi-m0-aIR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="82b-Gl-xha">
                             <connections>
-                                <segue destination="hD1-Km-bt0" kind="presentation" identifier="goToReminderSetter" modalPresentationStyle="fullScreen" id="gQm-If-u9W"/>
+                                <segue destination="hD1-Km-bt0" kind="presentation" identifier="" modalPresentationStyle="fullScreen" id="gQm-If-u9W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -99,7 +99,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wZ6-Et-H0Z">
                             <connections>
                                 <action selector="saveWhatWasTyped:" destination="DOG-PH-Lq8" id="GJH-MK-PBo"/>
-                                <segue destination="JVt-1u-8iM" kind="show" id="Ila-l6-Ldk"/>
+                                <segue destination="1st-px-1Wg" kind="unwind" unwindAction="unwindToReminderTableVCWithSegue:" id="bOR-1E-UoR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -111,6 +111,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6v-uy-xPL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1st-px-1Wg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2362.3188405797105" y="74.184782608695656"/>
         </scene>
@@ -135,7 +136,7 @@
         <!--Add Reminder Navigation View Controller-->
         <scene sceneID="0FV-6q-Hjl">
             <objects>
-                <navigationController title="Add Reminder Navigation View Controller" automaticallyAdjustsScrollViewInsets="NO" id="hD1-Km-bt0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="addReminderNavVC" title="Add Reminder Navigation View Controller" automaticallyAdjustsScrollViewInsets="NO" id="hD1-Km-bt0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="49e-mL-WG8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ujw-LM-zCW">
@@ -152,7 +153,4 @@
             <point key="canvasLocation" x="1636.5234375" y="74.670571010248892"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ila-l6-Ldk"/>
-    </inferredMetricsTieBreakers>
 </document>

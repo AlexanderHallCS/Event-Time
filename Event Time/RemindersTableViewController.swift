@@ -20,6 +20,7 @@ class RemindersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        print("reminders: \(remindersArray)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,8 +36,7 @@ class RemindersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellName", for: indexPath)
         let reminder = remindersArray[indexPath.row]
         cell.textLabel!.text = reminder.title
-        cell.detailTextLabel!.text = dateFormatter.string(from: reminder.date)
-        
+        cell.detailTextLabel!.text = reminder.date.description
         return cell
     }
     
@@ -45,9 +45,8 @@ class RemindersTableViewController: UITableViewController {
         if editingStyle == .delete {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [remindersArray[indexPath.row].title])
             remindersArray.remove(at: indexPath.row)
-            saveReminders()
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
+            saveReminders()
         }
     }
     
@@ -55,7 +54,7 @@ class RemindersTableViewController: UITableViewController {
         let fullPath = ReminderObject.DocumentsDirectory.appendingPathComponent("reminders")
         
         do {
-                let data = try NSKeyedArchiver.archivedData(withRootObject: remindersArray, requiringSecureCoding: false)
+            let data = try NSKeyedArchiver.archivedData(withRootObject: remindersArray, requiringSecureCoding: false)
             try data.write(to: fullPath)
             
         } catch {
@@ -71,17 +70,15 @@ class RemindersTableViewController: UITableViewController {
         return data
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToReminderSetter" {
-            if let addReminderVC = segue.destination as? AddReminderViewController, let reminder = addReminderVC.reminder {
-                // add a new reminder
-                let newIndexPath = IndexPath(row: remindersArray.count, section: 0)
-                remindersArray.append(reminder)
-                tableView.insertRows(at: [newIndexPath] , with: .bottom)
-                saveReminders()
-                tableView.reloadData()
-                addReminderVC.textField.becomeFirstResponder()
-            }
+    @IBAction func unwindToReminderTableVC(segue: UIStoryboardSegue) {
+        //NOTE: The unwind segues'.source was obtained because the AddReminderVC is where it came from
+        if let addReminderVC = segue.source as? AddReminderViewController, let reminder = addReminderVC.reminder {
+            // add a new reminder
+            let newIndexPath = IndexPath(row: remindersArray.count, section: 0)
+            remindersArray.append(reminder)
+            tableView.insertRows(at: [newIndexPath] , with: .bottom)
+            saveReminders()
+            tableView.reloadData()
         }
     }
     

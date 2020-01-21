@@ -28,6 +28,7 @@ class ReminderObject: NSObject, NSCoding {
     init(title: String, date: Date) {
         self.title = title
         self.date = date
+        print("called1")
        // self.notification = notification
         
         super.init()
@@ -43,11 +44,12 @@ class ReminderObject: NSObject, NSCoding {
        // coder.encode(notification, forKey: PropertyKey.notificationKey)
     }
     
+    // optional initializer to be called to use default values 
     required convenience init?(coder: NSCoder) {
         let title = coder.decodeObject(forKey: PropertyKey.titleKey) as! String
         let date = coder.decodeObject(forKey: PropertyKey.dateKey) as! Date
        // let notification = coder.decodeObject(forKey: PropertyKey.notificationKey) as! UNNotification
-        
+        print("called2!")
         //self.init(title: title, date: date, notification: notification)
         self.init(title: title, date: date)
     }

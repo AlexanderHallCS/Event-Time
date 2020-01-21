@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddReminderViewController: UIViewController, UITextFieldDelegate {
+class AddReminderViewController: UIViewController, UITextFieldDelegate, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -59,34 +59,32 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func sendNotification() {
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        content.title = textField.text!
+        print("textField text: \(textField.text!)")
+        content.body = datePicker.date.description
+        content.sound = .default
+        content.userInfo = ["value":"Data with local notification"]
+        let fireDate = Calendar.current.dateComponents([.day,.month,.year,.hour,.minute,.second], from: datePicker.date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: false)
+        let request = UNNotificationRequest(identifier: textField.text!, content: content, trigger: trigger)
+        center.add(request, withCompletionHandler: { (error) in
+            if error != nil {
+                print("Error = \(error?.localizedDescription ?? "error local notification")")
+            }
+        })
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if sender as? UIBarButtonItem == saveButton {
-            let center = UNUserNotificationCenter.current()
-            let content = UNMutableNotificationContent()
-            content.title = datePicker.date.description
-            content.body = textField.text!
-            content.sound = .default
-            content.userInfo = ["value":"Data with local notification"]
-            let fireDate = Calendar.current.dateComponents([.day,.month,.year,.hour,.minute,.second], from: datePicker.date)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: false)
-            let request = UNNotificationRequest(identifier: textField.text!, content: content, trigger: trigger)
-            center.add(request, withCompletionHandler: { (error) in
-                if error != nil {
-                    print("Error = \(error?.localizedDescription ?? "error local notification")")
-                }
-            })
-            
+            sendNotification()
             reminder = ReminderObject(title: textField.text!, date: datePicker.date)
-            
-            self.dismiss(animated: true, completion: nil)
+            if let remindersVC = segue.destination as? RemindersTableViewController {
+                remindersVC.tableView.reloadData()
+            }
         }
-       // if segue.identifier == "unwindToRemindersView" {
-         //   if let reminderTableVC = segue.destination as? RemindersTableViewController {
-                //reminderTableVC.dateArray.append(21)
-                //reminderTableVC.tableView.reloadData()
-     //tableView.insertRowsAtIndexPath([indexPath], withRowAnimation: .Bottom)
-                print("Segued!")
-      //      }
-    //    }
+        
     }
 }
