@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" title="Reminders" id="nLi-m0-aIR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="82b-Gl-xha">
                             <connections>
-                                <segue destination="hD1-Km-bt0" kind="presentation" identifier="" modalPresentationStyle="fullScreen" id="gQm-If-u9W"/>
+                                <segue destination="hD1-Km-bt0" kind="presentation" identifier="" id="gQm-If-u9W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -64,17 +64,17 @@
             <objects>
                 <viewController title="Add Reminder View Controller" id="DOG-PH-Lq8" customClass="AddReminderViewController" customModule="Event_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z1h-RB-KBM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Xp-Ta-ZHh">
-                                <rect key="frame" x="47" y="282" width="320" height="216"/>
+                                <rect key="frame" x="47" y="278" width="320" height="216"/>
                                 <connections>
                                     <action selector="datePicker:" destination="DOG-PH-Lq8" eventType="valueChanged" id="cSi-fd-f8x"/>
                                 </connections>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Reminder" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-ei-1b6">
-                                <rect key="frame" x="20" y="174" width="374" height="34"/>
+                                <rect key="frame" x="20" y="170" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -140,7 +140,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="49e-mL-WG8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ujw-LM-zCW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

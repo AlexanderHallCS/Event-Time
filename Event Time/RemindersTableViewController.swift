@@ -19,8 +19,11 @@ class RemindersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //this variable isn't getting set (loadReminders() is nil)
+        if let savedReminders = loadReminders() {
+            remindersArray += savedReminders
+        }
         tableView.reloadData()
-        print("reminders: \(remindersArray)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,11 +65,15 @@ class RemindersTableViewController: UITableViewController {
         }
     }
     
+    // gets all the reminders from the Documents Directory
     func loadReminders() -> [ReminderObject]? {
         //let data = NSData(contentsOfFile: ReminderObject.DocumentsDirectory.path)
-        let dataURL = ReminderObject.DocumentsDirectory
-        guard let codedData = try? Data(contentsOf: dataURL) else { return nil }
+        let dataURL = ReminderObject.DocumentsDirectory.appendingPathComponent("reminders")
+        guard let codedData = try? Data(contentsOf: dataURL) else {
+            return nil
+        }
         let data = try! (NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(codedData) as! [ReminderObject])
+        
         return data
     }
     

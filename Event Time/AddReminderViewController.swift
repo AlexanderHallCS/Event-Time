@@ -23,7 +23,6 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UNUserNo
     }
     
     @IBAction func cancelPopOut(_ sender: UIBarButtonItem) {
-        
         self.dismiss(animated: true)
     }
     
