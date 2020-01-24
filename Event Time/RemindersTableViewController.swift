@@ -19,10 +19,22 @@ class RemindersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //this variable isn't getting set (loadReminders() is nil)
         if let savedReminders = loadReminders() {
             remindersArray += savedReminders
         }
+        tableView.reloadData()
+    }
+    
+    @IBAction func deleteAll(_ sender: UIBarButtonItem) {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        var remindersArrayCount = remindersArray.count-1
+        while remindersArrayCount >= 0 {
+            let indexPath = IndexPath(item: remindersArrayCount, section: 0)
+            remindersArray.remove(at: remindersArrayCount)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            remindersArrayCount -= 1
+        }
+        saveReminders()
         tableView.reloadData()
     }
     

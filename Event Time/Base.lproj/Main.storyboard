@@ -48,6 +48,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Reminders" id="nLi-m0-aIR">
+                        <barButtonItem key="leftBarButtonItem" title="Delete All" id="p7Q-8M-AP0">
+                            <connections>
+                                <action selector="deleteAll:" destination="JVt-1u-8iM" id="6K4-vz-26g"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="82b-Gl-xha">
                             <connections>
                                 <segue destination="hD1-Km-bt0" kind="presentation" identifier="" id="gQm-If-u9W"/>
